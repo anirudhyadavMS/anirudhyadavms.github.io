@@ -554,10 +554,14 @@
 
         /* Company Knowledge Badge */
         .enabled-tools {
-            display: flex;
+            display: none;
             align-items: center;
             gap: 8px;
             margin-left: auto;
+        }
+
+        .enabled-tools.active {
+            display: flex;
         }
 
         .tool-badge {
@@ -929,7 +933,7 @@
                     <input type="text" class="message-input" placeholder="Message Copilot">
                     <div class="input-actions">
                         <button class="add-btn">+</button>
-                        <div class="enabled-tools" id="enabledTools" style="display: none;">
+                        <div class="enabled-tools" id="enabledTools">
                             <div class="tool-badge">
                                 <div class="tool-badge-icon"></div>
                                 Company knowledge
@@ -1086,7 +1090,7 @@
         // Handle Company Knowledge tool click
         companyKnowledgeMenuItem.addEventListener('click', function(e) {
             e.stopPropagation();
-            enabledTools.style.display = 'flex';
+            enabledTools.classList.add('active');
             toolsDropdown.classList.remove('active');
         });
 
