@@ -940,6 +940,296 @@
             padding: 4px;
         }
 
+        /* Dropbox Connect Modal */
+        .dropbox-modal {
+            background-color: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropbox-modal-header {
+            padding: 24px 28px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .dropbox-modal-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .dropbox-modal-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dropbox-modal-icon.app {
+            background-color: #f5f5f5;
+        }
+
+        .dropbox-modal-icon.connector {
+            background-color: #0061FF;
+        }
+
+        .dropbox-modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .dropbox-modal-subtitle {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .dropbox-modal-body {
+            padding: 24px 28px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+        }
+
+        .info-section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .info-section-content {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .info-section-link {
+            color: #0078D4;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .info-section-link:hover {
+            text-decoration: underline;
+        }
+
+        .dropbox-modal-footer {
+            padding: 20px 28px;
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .continue-dropbox-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        .continue-dropbox-btn:hover {
+            background-color: #333;
+        }
+
+        .advanced-settings-link {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 8px;
+            transition: color 0.2s;
+        }
+
+        .advanced-settings-link:hover {
+            color: #0078D4;
+        }
+
+        /* Advanced Settings Modal */
+        .advanced-modal {
+            background-color: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .advanced-modal-header {
+            padding: 24px 28px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .advanced-modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .advanced-modal-body {
+            padding: 24px 28px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .connection-type-section {
+            margin-bottom: 24px;
+        }
+
+        .connection-type-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .connection-option {
+            padding: 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .connection-option:hover {
+            background-color: #f8f8f8;
+        }
+
+        .connection-option.selected {
+            border-color: #0078D4;
+            background-color: #f0f9ff;
+        }
+
+        .connection-option-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .connection-option-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .connection-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d0d0d0;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .connection-option.selected .connection-radio {
+            border-color: #0078D4;
+        }
+
+        .connection-radio::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #0078D4;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        .connection-option.selected .connection-radio::after {
+            opacity: 1;
+        }
+
+        .connection-option-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+            padding-right: 30px;
+        }
+
+        .connection-option-link {
+            color: #0078D4;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .connection-option-link:hover {
+            text-decoration: underline;
+        }
+
+        .advanced-modal-footer {
+            padding: 20px 28px;
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .cancel-btn {
+            background-color: transparent;
+            color: #666;
+            border: 1px solid #d0d0d0;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cancel-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .save-changes-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .save-changes-btn:hover {
+            background-color: #333;
+        }
+
         /* Suggestion Cards */
         .suggestions {
             width: 100%;
@@ -1361,6 +1651,87 @@
         </div>
     </div>
 
+    <!-- Dropbox Connect Modal -->
+    <div class="modal-overlay" id="dropboxModal">
+        <div class="dropbox-modal">
+            <div class="dropbox-modal-header">
+                <div class="dropbox-modal-icons">
+                    <div class="dropbox-modal-icon app">📷</div>
+                    <div class="dropbox-modal-icon connector" style="background-color: #0061FF;">📦</div>
+                </div>
+                <div class="dropbox-modal-title">Connect Dropbox</div>
+                <div class="dropbox-modal-subtitle">Developed by OpenAI</div>
+            </div>
+            <div class="dropbox-modal-body">
+                <div class="info-section">
+                    <div class="info-section-title">Continuous sync</div>
+                    <div class="info-section-content">
+                        Your Dropbox content is indexed, stored, and kept up to date in ChatGPT. <a href="#" class="info-section-link">Learn more</a>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <div class="info-section-title">Permissions always respected</div>
+                    <div class="info-section-content">
+                        ChatGPT is strictly limited to permissions you've explicitly set. Disable access anytime to revoke permissions.
+                    </div>
+                </div>
+                <div class="info-section">
+                    <div class="info-section-title">How ChatGPT uses data</div>
+                    <div class="info-section-content">
+                        By default, we do not train on your data. Data from Dropbox may be used to provide you relevant and useful information. <a href="#" class="info-section-link">Learn more</a>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <div class="info-section-title">Connectors may introduce risk</div>
+                    <div class="info-section-content">
+                        Connectors are designed to respect your privacy, but sites may attempt to steal your data. <a href="#" class="info-section-link">Learn more on how to stay safe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dropbox-modal-footer">
+                <button class="continue-dropbox-btn" type="button">Continue to Dropbox</button>
+                <div class="advanced-settings-link" id="advancedSettingsLink">Advanced settings</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Settings Modal -->
+    <div class="modal-overlay" id="advancedModal">
+        <div class="advanced-modal">
+            <div class="advanced-modal-header">
+                <div class="advanced-modal-title">Advanced settings</div>
+                <button class="modal-close" id="closeAdvancedModal" type="button" aria-label="Close modal">✕</button>
+            </div>
+            <div class="advanced-modal-body">
+                <div class="connection-type-section">
+                    <div class="connection-type-title">Connection type</div>
+                    <div class="connection-option selected" data-connection="sync">
+                        <div class="connection-option-header">
+                            <div class="connection-option-name">Sync</div>
+                            <div class="connection-radio"></div>
+                        </div>
+                        <div class="connection-option-description">
+                            Automatically syncs, indexes, and stores content to ChatGPT for improved response speed and quality. <a href="#" class="connection-option-link">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="connection-option" data-connection="ondemand">
+                        <div class="connection-option-header">
+                            <div class="connection-option-name">On demand</div>
+                            <div class="connection-radio"></div>
+                        </div>
+                        <div class="connection-option-description">
+                            Access content on demand. Responses will take longer and may be lower quality.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="advanced-modal-footer">
+                <button class="cancel-btn" id="cancelAdvancedBtn" type="button">Cancel</button>
+                <button class="save-changes-btn" id="saveChangesBtn" type="button">Save changes</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Tools dropdown functionality
         const toolsBtn = document.getElementById('toolsBtn');
@@ -1371,6 +1742,12 @@
         const sourcesDropdown = document.getElementById('sourcesDropdown');
         const connectModal = document.getElementById('connectModal');
         const closeModal = document.getElementById('closeModal');
+        const dropboxModal = document.getElementById('dropboxModal');
+        const advancedModal = document.getElementById('advancedModal');
+        const advancedSettingsLink = document.getElementById('advancedSettingsLink');
+        const closeAdvancedModal = document.getElementById('closeAdvancedModal');
+        const cancelAdvancedBtn = document.getElementById('cancelAdvancedBtn');
+        const saveChangesBtn = document.getElementById('saveChangesBtn');
 
         // Toggle tools dropdown when clicking the tools button
         toolsBtn.addEventListener('click', function(e) {
@@ -1411,14 +1788,28 @@
             });
         }
 
-        // Close modal when clicking the close button
+        // Handle Dropbox source item click to open Dropbox modal
+        const dropboxSourceItem = document.querySelector('.source-item[data-source="dropbox"]');
+        if (dropboxSourceItem && dropboxModal && sourcesDropdown) {
+            dropboxSourceItem.addEventListener('click', function(e) {
+                // Don't open modal if clicking on toggle switch
+                if (e.target.classList.contains('toggle-switch')) {
+                    return;
+                }
+                e.stopPropagation();
+                dropboxModal.classList.add('active');
+                sourcesDropdown.classList.remove('active');
+            });
+        }
+
+        // Close connect modal when clicking the close button
         if (closeModal && connectModal) {
             closeModal.addEventListener('click', function() {
                 connectModal.classList.remove('active');
             });
         }
 
-        // Close modal when clicking outside the modal content
+        // Close connect modal when clicking outside the modal content
         if (connectModal) {
             connectModal.addEventListener('click', function(e) {
                 if (e.target === connectModal) {
@@ -1426,6 +1817,66 @@
                 }
             });
         }
+
+        // Close dropbox modal when clicking outside the modal content
+        if (dropboxModal) {
+            dropboxModal.addEventListener('click', function(e) {
+                if (e.target === dropboxModal) {
+                    dropboxModal.classList.remove('active');
+                }
+            });
+        }
+
+        // Open Advanced Settings modal from Dropbox modal
+        if (advancedSettingsLink && advancedModal && dropboxModal) {
+            advancedSettingsLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                advancedModal.classList.add('active');
+                // Keep dropbox modal open in background
+            });
+        }
+
+        // Close Advanced Settings modal
+        function closeAdvancedSettingsModal() {
+            if (advancedModal) {
+                advancedModal.classList.remove('active');
+            }
+        }
+
+        // Close advanced modal when clicking the X button
+        if (closeAdvancedModal) {
+            closeAdvancedModal.addEventListener('click', closeAdvancedSettingsModal);
+        }
+
+        // Close advanced modal when clicking Cancel button
+        if (cancelAdvancedBtn) {
+            cancelAdvancedBtn.addEventListener('click', closeAdvancedSettingsModal);
+        }
+
+        // Close advanced modal when clicking Save changes button
+        if (saveChangesBtn) {
+            saveChangesBtn.addEventListener('click', closeAdvancedSettingsModal);
+        }
+
+        // Close advanced modal when clicking outside the modal content
+        if (advancedModal) {
+            advancedModal.addEventListener('click', function(e) {
+                if (e.target === advancedModal) {
+                    closeAdvancedSettingsModal();
+                }
+            });
+        }
+
+        // Handle connection type selection in Advanced Settings
+        document.querySelectorAll('.connection-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.connection-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
