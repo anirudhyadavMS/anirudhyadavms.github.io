@@ -1296,11 +1296,11 @@
                     <div class="modal-title">Connect more apps</div>
                     <div class="modal-subtitle">Get better answers by connecting more apps</div>
                 </div>
-                <button class="modal-close" id="closeModal">✕</button>
+                <button class="modal-close" id="closeModal" type="button" aria-label="Close modal">✕</button>
             </div>
             <div class="modal-body">
                 <div class="continue-section">
-                    <button class="continue-btn">Continue with 5 apps</button>
+                    <button class="continue-btn" type="button">Continue with 5 apps</button>
                 </div>
                 <div class="apps-grid">
                     <div class="app-card" data-app="gmail">
@@ -1336,19 +1336,19 @@
                     </div>
                     <div class="app-card" data-app="sharepoint">
                         <div class="app-card-icon sharepoint">
-                            <button class="app-connect-btn">+</button>
+                            <button class="app-connect-btn" type="button" aria-label="Connect SharePoint">+</button>
                         </div>
                         <div class="app-card-name">SharePoint</div>
                     </div>
                     <div class="app-card" data-app="slack">
                         <div class="app-card-icon slack">
-                            <button class="app-connect-btn">+</button>
+                            <button class="app-connect-btn" type="button" aria-label="Connect Slack">+</button>
                         </div>
                         <div class="app-card-name">Slack</div>
                     </div>
                     <div class="app-card" data-app="teams">
                         <div class="app-card-icon teams">
-                            <button class="app-connect-btn">+</button>
+                            <button class="app-connect-btn" type="button" aria-label="Connect Microsoft Teams">+</button>
                         </div>
                         <div class="app-card-name">Microsoft Teams</div>
                     </div>
@@ -1401,11 +1401,14 @@
         });
 
         // Handle "Connect more" click to open modal
-        document.querySelector('.source-item.connect-more').addEventListener('click', function(e) {
-            e.stopPropagation();
-            connectModal.classList.add('active');
-            sourcesDropdown.classList.remove('active');
-        });
+        const connectMoreBtn = document.querySelector('.source-item.connect-more');
+        if (connectMoreBtn) {
+            connectMoreBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                connectModal.classList.add('active');
+                sourcesDropdown.classList.remove('active');
+            });
+        }
 
         // Close modal when clicking the close button
         closeModal.addEventListener('click', function() {
