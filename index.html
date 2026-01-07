@@ -512,7 +512,7 @@
         }
 
         .tools-menu-icon.explore {
-            background-color: #0078D4;
+            background-color: #6B7280;
         }
 
         .tools-menu-content {
@@ -854,14 +854,9 @@
 
         // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
-            if (!toolsBtn.contains(e.target)) {
+            if (!toolsBtn.contains(e.target) && !toolsDropdown.contains(e.target)) {
                 toolsDropdown.classList.remove('active');
             }
-        });
-
-        // Prevent dropdown from closing when clicking inside it
-        toolsDropdown.addEventListener('click', function(e) {
-            e.stopPropagation();
         });
     </script>
 </body>
