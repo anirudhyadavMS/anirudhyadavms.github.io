@@ -950,32 +950,32 @@
                                     <div class="source-item" data-source="dropbox">
                                         <div class="source-icon dropbox"></div>
                                         <div class="source-name">Dropbox</div>
-                                        <div class="toggle-switch" data-state="on"></div>
+                                        <div class="toggle-switch"></div>
                                     </div>
                                     <div class="source-item" data-source="github">
                                         <div class="source-icon github"></div>
                                         <div class="source-name">GitHub</div>
-                                        <div class="toggle-switch off" data-state="off"></div>
+                                        <div class="toggle-switch off"></div>
                                     </div>
                                     <div class="source-item" data-source="gmail">
                                         <div class="source-icon gmail"></div>
                                         <div class="source-name">Gmail</div>
-                                        <div class="toggle-switch" data-state="on"></div>
+                                        <div class="toggle-switch"></div>
                                     </div>
                                     <div class="source-item" data-source="calendar">
                                         <div class="source-icon calendar"></div>
                                         <div class="source-name">Google Calendar</div>
-                                        <div class="toggle-switch" data-state="on"></div>
+                                        <div class="toggle-switch"></div>
                                     </div>
                                     <div class="source-item" data-source="drive">
                                         <div class="source-icon drive"></div>
                                         <div class="source-name">Google Drive</div>
-                                        <div class="toggle-switch" data-state="on"></div>
+                                        <div class="toggle-switch"></div>
                                     </div>
                                     <div class="source-item" data-source="box">
                                         <div class="source-icon box"></div>
                                         <div class="source-name">Box</div>
-                                        <div class="toggle-switch off" data-state="off"></div>
+                                        <div class="toggle-switch off"></div>
                                     </div>
                                     <div class="source-item connect-more">
                                         <div class="connect-icon"></div>
@@ -1111,8 +1111,6 @@
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 this.classList.toggle('off');
-                const state = this.classList.contains('off') ? 'off' : 'on';
-                this.setAttribute('data-state', state);
             });
         });
 
