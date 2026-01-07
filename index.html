@@ -515,6 +515,10 @@
             background-color: #6B7280;
         }
 
+        .tools-menu-icon.company-knowledge {
+            background-color: #059669;
+        }
+
         .tools-menu-content {
             flex: 1;
         }
@@ -546,6 +550,175 @@
             color: #999;
             font-size: 12px;
             margin-left: auto;
+        }
+
+        /* Company Knowledge Badge */
+        .enabled-tools {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .tool-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            background-color: #f0f9ff;
+            border: 1px solid #0078D4;
+            border-radius: 16px;
+            font-size: 12px;
+            color: #0078D4;
+            font-weight: 500;
+        }
+
+        .tool-badge-icon {
+            width: 14px;
+            height: 14px;
+            background-color: #059669;
+            border-radius: 3px;
+        }
+
+        .sources-dropdown-btn {
+            padding: 4px 8px;
+            background-color: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #333;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .sources-dropdown-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-arrow {
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* Sources Dropdown Menu */
+        .sources-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 240px;
+            display: none;
+            z-index: 1000;
+            padding: 8px 0;
+        }
+
+        .sources-dropdown.active {
+            display: block;
+        }
+
+        .source-item {
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .source-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .source-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .source-icon.dropbox {
+            background-color: #0061FF;
+        }
+
+        .source-icon.github {
+            background-color: #181717;
+        }
+
+        .source-icon.gmail {
+            background-color: #EA4335;
+        }
+
+        .source-icon.calendar {
+            background-color: #4285F4;
+        }
+
+        .source-icon.drive {
+            background-color: #34A853;
+        }
+
+        .source-icon.box {
+            background-color: #0061D5;
+        }
+
+        .source-name {
+            flex: 1;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        .toggle-switch {
+            width: 36px;
+            height: 20px;
+            background-color: #0078D4;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch.off {
+            background-color: #d0d0d0;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            right: 2px;
+            transition: transform 0.2s;
+        }
+
+        .toggle-switch.off::after {
+            transform: translateX(-16px);
+        }
+
+        .source-item.connect-more {
+            border-top: 1px solid #e0e0e0;
+            margin-top: 4px;
+            padding-top: 12px;
+        }
+
+        .source-item.connect-more .source-name {
+            color: #1a1a1a;
+        }
+
+        .connect-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #666;
+            border-radius: 4px;
         }
 
         /* Suggestion Cards */
@@ -756,6 +929,52 @@
                     <input type="text" class="message-input" placeholder="Message Copilot">
                     <div class="input-actions">
                         <button class="add-btn">+</button>
+                        <div class="enabled-tools" id="enabledTools" style="display: none;">
+                            <div class="tool-badge">
+                                <div class="tool-badge-icon"></div>
+                                Company knowledge
+                            </div>
+                            <button class="sources-dropdown-btn" id="sourcesBtn">
+                                Sources
+                                <span class="dropdown-arrow">▼</span>
+                                <div class="sources-dropdown" id="sourcesDropdown">
+                                    <div class="source-item" data-source="dropbox">
+                                        <div class="source-icon dropbox"></div>
+                                        <div class="source-name">Dropbox</div>
+                                        <div class="toggle-switch" data-state="on"></div>
+                                    </div>
+                                    <div class="source-item" data-source="github">
+                                        <div class="source-icon github"></div>
+                                        <div class="source-name">GitHub</div>
+                                        <div class="toggle-switch off" data-state="off"></div>
+                                    </div>
+                                    <div class="source-item" data-source="gmail">
+                                        <div class="source-icon gmail"></div>
+                                        <div class="source-name">Gmail</div>
+                                        <div class="toggle-switch" data-state="on"></div>
+                                    </div>
+                                    <div class="source-item" data-source="calendar">
+                                        <div class="source-icon calendar"></div>
+                                        <div class="source-name">Google Calendar</div>
+                                        <div class="toggle-switch" data-state="on"></div>
+                                    </div>
+                                    <div class="source-item" data-source="drive">
+                                        <div class="source-icon drive"></div>
+                                        <div class="source-name">Google Drive</div>
+                                        <div class="toggle-switch" data-state="on"></div>
+                                    </div>
+                                    <div class="source-item" data-source="box">
+                                        <div class="source-icon box"></div>
+                                        <div class="source-name">Box</div>
+                                        <div class="toggle-switch off" data-state="off"></div>
+                                    </div>
+                                    <div class="source-item connect-more">
+                                        <div class="connect-icon"></div>
+                                        <div class="source-name">Connect more</div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
                         <button class="tools-btn" id="toolsBtn">
                             <div class="tools-icon"></div>
                             Tools
@@ -802,6 +1021,13 @@
                                         <div class="tools-menu-description">Design beautiful presentations</div>
                                     </div>
                                 </div>
+                                <div class="tools-menu-item" id="companyKnowledgeMenuItem">
+                                    <div class="tools-menu-icon company-knowledge"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">Company knowledge</div>
+                                        <div class="tools-menu-description">Search your organization's information</div>
+                                    </div>
+                                </div>
                                 <div class="tools-menu-item explore-more">
                                     <div class="tools-menu-icon explore"></div>
                                     <div class="tools-menu-content">
@@ -845,17 +1071,49 @@
         // Tools dropdown functionality
         const toolsBtn = document.getElementById('toolsBtn');
         const toolsDropdown = document.getElementById('toolsDropdown');
+        const companyKnowledgeMenuItem = document.getElementById('companyKnowledgeMenuItem');
+        const enabledTools = document.getElementById('enabledTools');
+        const sourcesBtn = document.getElementById('sourcesBtn');
+        const sourcesDropdown = document.getElementById('sourcesDropdown');
 
-        // Toggle dropdown when clicking the tools button
+        // Toggle tools dropdown when clicking the tools button
         toolsBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             toolsDropdown.classList.toggle('active');
+            sourcesDropdown.classList.remove('active');
         });
 
-        // Close dropdown when clicking outside
+        // Handle Company Knowledge tool click
+        companyKnowledgeMenuItem.addEventListener('click', function(e) {
+            e.stopPropagation();
+            enabledTools.style.display = 'flex';
+            toolsDropdown.classList.remove('active');
+        });
+
+        // Toggle sources dropdown when clicking the sources button
+        sourcesBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            sourcesDropdown.classList.toggle('active');
+            toolsDropdown.classList.remove('active');
+        });
+
+        // Handle toggle switches
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('off');
+                const state = this.classList.contains('off') ? 'off' : 'on';
+                this.setAttribute('data-state', state);
+            });
+        });
+
+        // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
             if (!toolsBtn.contains(e.target) && !toolsDropdown.contains(e.target)) {
                 toolsDropdown.classList.remove('active');
+            }
+            if (!sourcesBtn.contains(e.target) && !sourcesDropdown.contains(e.target)) {
+                sourcesDropdown.classList.remove('active');
             }
         });
     </script>
