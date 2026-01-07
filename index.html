@@ -1788,17 +1788,13 @@
             });
         }
 
-        // Handle Dropbox source item click to open Dropbox modal
-        const dropboxSourceItem = document.querySelector('.source-item[data-source="dropbox"]');
-        if (dropboxSourceItem && dropboxModal && sourcesDropdown) {
-            dropboxSourceItem.addEventListener('click', function(e) {
-                // Don't open modal if clicking on toggle switch
-                if (e.target.classList.contains('toggle-switch')) {
-                    return;
-                }
+        // Handle Dropbox app card click in "Connect more apps" modal to open Dropbox modal
+        const dropboxAppCard = document.querySelector('.app-card[data-app="dropbox"]');
+        if (dropboxAppCard && dropboxModal && connectModal) {
+            dropboxAppCard.addEventListener('click', function(e) {
                 e.stopPropagation();
                 dropboxModal.classList.add('active');
-                sourcesDropdown.classList.remove('active');
+                // Keep the Connect more apps modal open in background
             });
         }
 
