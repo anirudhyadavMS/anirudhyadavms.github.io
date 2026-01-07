@@ -1402,7 +1402,7 @@
 
         // Handle "Connect more" click to open modal
         const connectMoreBtn = document.querySelector('.source-item.connect-more');
-        if (connectMoreBtn) {
+        if (connectMoreBtn && connectModal) {
             connectMoreBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 connectModal.classList.add('active');
@@ -1411,16 +1411,20 @@
         }
 
         // Close modal when clicking the close button
-        closeModal.addEventListener('click', function() {
-            connectModal.classList.remove('active');
-        });
+        if (closeModal && connectModal) {
+            closeModal.addEventListener('click', function() {
+                connectModal.classList.remove('active');
+            });
+        }
 
         // Close modal when clicking outside the modal content
-        connectModal.addEventListener('click', function(e) {
-            if (e.target === connectModal) {
-                connectModal.classList.remove('active');
-            }
-        });
+        if (connectModal) {
+            connectModal.addEventListener('click', function(e) {
+                if (e.target === connectModal) {
+                    connectModal.classList.remove('active');
+                }
+            });
+        }
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
