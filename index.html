@@ -568,7 +568,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 4px 8px;
+            padding: 6px 10px;
             background-color: #f0f9ff;
             border: 1px solid #0078D4;
             border-radius: 16px;
@@ -589,26 +589,28 @@
         }
 
         .sources-dropdown-btn {
-            padding: 4px 8px;
+            padding: 6px 10px;
             background-color: white;
-            border: 1px solid #d0d0d0;
+            border: 1px solid #c0c0c0;
             border-radius: 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 4px;
             font-size: 12px;
-            color: #333;
+            color: #1a1a1a;
             font-weight: 500;
+            transition: all 0.2s;
         }
 
         .sources-dropdown-btn:hover {
             background-color: #f5f5f5;
+            border-color: #a0a0a0;
         }
 
         .dropdown-arrow {
             font-size: 10px;
-            color: #666;
+            color: #555;
         }
 
         /* Sources Dropdown Menu */
@@ -641,7 +643,7 @@
         }
 
         .source-item:hover {
-            background-color: #f5f5f5;
+            background-color: #f8f8f8;
         }
 
         .source-icon {
@@ -719,6 +721,7 @@
 
         .source-item.connect-more .source-name {
             color: #1a1a1a;
+            font-weight: 500;
         }
 
         .connect-icon {
@@ -726,6 +729,215 @@
             height: 20px;
             background-color: #666;
             border-radius: 4px;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        /* Connect More Modal */
+        .connect-modal {
+            background-color: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            padding: 24px 28px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title-section {
+            flex: 1;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 20px;
+            color: #666;
+            transition: background-color 0.2s;
+        }
+
+        .modal-close:hover {
+            background-color: #f0f0f0;
+        }
+
+        .modal-body {
+            padding: 24px 28px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .continue-section {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .continue-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .continue-btn:hover {
+            background-color: #333;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .app-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+
+        .app-card:hover {
+            background-color: #f8f8f8;
+        }
+
+        .app-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .app-card-icon.gmail {
+            background-color: #EA4335;
+        }
+
+        .app-card-icon.drive {
+            background-color: #34A853;
+        }
+
+        .app-card-icon.calendar {
+            background-color: #4285F4;
+        }
+
+        .app-card-icon.dropbox {
+            background-color: #0061FF;
+        }
+
+        .app-card-icon.github {
+            background-color: #24292e;
+        }
+
+        .app-card-icon.sharepoint {
+            background-color: #0078D4;
+        }
+
+        .app-card-icon.slack {
+            background-color: #4A154B;
+        }
+
+        .app-card-icon.teams {
+            background-color: #6264A7;
+        }
+
+        .app-card-icon.add-more {
+            background-color: #e5e5e5;
+            color: #666;
+            font-size: 24px;
+        }
+
+        .app-check {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 20px;
+            height: 20px;
+            background-color: #0078D4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .app-card-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .app-card-meta {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+
+        .app-connect-btn {
+            background-color: transparent;
+            border: none;
+            color: #666;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 4px;
         }
 
         /* Suggestion Cards */
@@ -1076,6 +1288,78 @@
         </div>
     </div>
 
+    <!-- Connect More Apps Modal -->
+    <div class="modal-overlay" id="connectModal">
+        <div class="connect-modal">
+            <div class="modal-header">
+                <div class="modal-title-section">
+                    <div class="modal-title">Connect more apps</div>
+                    <div class="modal-subtitle">Get better answers by connecting more apps</div>
+                </div>
+                <button class="modal-close" id="closeModal">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="continue-section">
+                    <button class="continue-btn">Continue with 5 apps</button>
+                </div>
+                <div class="apps-grid">
+                    <div class="app-card" data-app="gmail">
+                        <div class="app-card-icon gmail">
+                            <div class="app-check">✓</div>
+                        </div>
+                        <div class="app-card-name">Gmail</div>
+                        <div class="app-card-meta">5 teammates</div>
+                    </div>
+                    <div class="app-card" data-app="drive">
+                        <div class="app-card-icon drive">
+                            <div class="app-check">✓</div>
+                        </div>
+                        <div class="app-card-name">Google Drive</div>
+                    </div>
+                    <div class="app-card" data-app="calendar">
+                        <div class="app-card-icon calendar">
+                            <div class="app-check">✓</div>
+                        </div>
+                        <div class="app-card-name">Google Calendar</div>
+                    </div>
+                    <div class="app-card" data-app="dropbox">
+                        <div class="app-card-icon dropbox">
+                            <div class="app-check">✓</div>
+                        </div>
+                        <div class="app-card-name">Dropbox</div>
+                    </div>
+                    <div class="app-card" data-app="github">
+                        <div class="app-card-icon github">
+                            <div class="app-check">✓</div>
+                        </div>
+                        <div class="app-card-name">GitHub</div>
+                    </div>
+                    <div class="app-card" data-app="sharepoint">
+                        <div class="app-card-icon sharepoint">
+                            <button class="app-connect-btn">+</button>
+                        </div>
+                        <div class="app-card-name">SharePoint</div>
+                    </div>
+                    <div class="app-card" data-app="slack">
+                        <div class="app-card-icon slack">
+                            <button class="app-connect-btn">+</button>
+                        </div>
+                        <div class="app-card-name">Slack</div>
+                    </div>
+                    <div class="app-card" data-app="teams">
+                        <div class="app-card-icon teams">
+                            <button class="app-connect-btn">+</button>
+                        </div>
+                        <div class="app-card-name">Microsoft Teams</div>
+                    </div>
+                    <div class="app-card add-more">
+                        <div class="app-card-icon add-more">+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Tools dropdown functionality
         const toolsBtn = document.getElementById('toolsBtn');
@@ -1084,6 +1368,8 @@
         const enabledTools = document.getElementById('enabledTools');
         const sourcesBtn = document.getElementById('sourcesBtn');
         const sourcesDropdown = document.getElementById('sourcesDropdown');
+        const connectModal = document.getElementById('connectModal');
+        const closeModal = document.getElementById('closeModal');
 
         // Toggle tools dropdown when clicking the tools button
         toolsBtn.addEventListener('click', function(e) {
@@ -1114,8 +1400,24 @@
             });
         });
 
-        // Note: 'Connect more' item is a placeholder UI element in this prototype
-        // In a production implementation, it would open a modal or navigate to a connection page
+        // Handle "Connect more" click to open modal
+        document.querySelector('.source-item.connect-more').addEventListener('click', function(e) {
+            e.stopPropagation();
+            connectModal.classList.add('active');
+            sourcesDropdown.classList.remove('active');
+        });
+
+        // Close modal when clicking the close button
+        closeModal.addEventListener('click', function() {
+            connectModal.classList.remove('active');
+        });
+
+        // Close modal when clicking outside the modal content
+        connectModal.addEventListener('click', function(e) {
+            if (e.target === connectModal) {
+                connectModal.classList.remove('active');
+            }
+        });
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
