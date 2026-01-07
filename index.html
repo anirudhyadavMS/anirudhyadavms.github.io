@@ -1114,6 +1114,9 @@
             });
         });
 
+        // Note: 'Connect more' item is a placeholder UI element in this prototype
+        // In a production implementation, it would open a modal or navigate to a connection page
+
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
             if (!toolsBtn.contains(e.target) && !toolsDropdown.contains(e.target)) {
