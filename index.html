@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M365 Copilot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: #f3f3f3;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #00BCF2, #7B83EB, #F25022, #FFB900);
+            border-radius: 4px;
+        }
+
+        .header-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .new-chat-btn {
+            margin: 8px 16px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #D946EF, #F472B6);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .new-chat-icon {
+            width: 16px;
+            height: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+        }
+
+        .search-box {
+            margin: 8px 16px;
+            padding: 8px 12px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .search-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #d0d0d0;
+            border-radius: 50%;
+        }
+
+        .nav-item {
+            margin: 4px 16px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .nav-item:hover {
+            background-color: #e8e8e8;
+        }
+
+        .nav-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #999;
+            border-radius: 3px;
+        }
+
+        .section-title {
+            margin: 16px 16px 8px;
+            font-size: 11px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .agent-item {
+            margin: 2px 16px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .agent-item:hover {
+            background-color: #e8e8e8;
+        }
+
+        .agent-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .agent-icon.researcher {
+            background: linear-gradient(135deg, #3B82F6, #60A5FA);
+        }
+
+        .agent-icon.analyst {
+            background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+        }
+
+        .agent-icon.chatgpt {
+            background: linear-gradient(135deg, #10B981, #34D399);
+        }
+
+        .agent-icon.spec {
+            background: linear-gradient(135deg, #06B6D4, #22D3EE);
+        }
+
+        .agent-icon.new {
+            background-color: #e0e0e0;
+        }
+
+        .agent-icon.all {
+            background-color: #999;
+        }
+
+        .notebook-item {
+            margin: 2px 16px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .notebook-item:hover {
+            background-color: #e8e8e8;
+        }
+
+        .notebook-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #999;
+            border-radius: 3px;
+        }
+
+        .chats-section {
+            margin-top: 16px;
+            flex: 1;
+        }
+
+        .chats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 16px 8px;
+        }
+
+        .chats-title {
+            font-size: 11px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .search-chats-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #d0d0d0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .chat-item {
+            margin: 2px 16px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chat-item:hover {
+            background-color: #e8e8e8;
+        }
+
+        .user-profile {
+            margin-top: auto;
+            padding: 12px 16px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            background-color: #0078D4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .user-name {
+            font-size: 13px;
+            color: #333;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 4px;
+        }
+
+        .user-action-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #d0d0d0;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        /* Top Header */
+        .top-header {
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .mode-toggle {
+            display: flex;
+            gap: 4px;
+        }
+
+        .mode-btn {
+            padding: 6px 16px;
+            border: 1px solid #0078D4;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+
+        .mode-btn.active {
+            background-color: #0078D4;
+            color: white;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .auto-dropdown {
+            padding: 6px 12px;
+            border: 1px solid #e0e0e0;
+            background-color: white;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .action-icon {
+            width: 28px;
+            height: 28px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-icon.primary {
+            background-color: #0078D4;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .greeting {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .message-input-container {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 32px;
+        }
+
+        .message-input-wrapper {
+            background-color: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .message-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .input-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .add-btn {
+            width: 24px;
+            height: 24px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+            border: none;
+        }
+
+        .tools-btn {
+            padding: 6px 12px;
+            background-color: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .tools-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #999;
+            border-radius: 3px;
+        }
+
+        /* Suggestion Cards */
+        .suggestions {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .suggestion-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .suggestion-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #0078D4;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0078D4, #00BCF2);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #0078D4;
+            margin-bottom: 8px;
+        }
+
+        .card-subtitle {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .show-more {
+            margin-top: 8px;
+            color: #666;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .show-more:hover {
+            color: #0078D4;
+        }
+
+        @media (max-width: 1024px) {
+            .suggestions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 240px;
+            }
+
+            .suggestions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>M365 Copilot</span>
+            </div>
+            <div class="header-icon"></div>
+        </div>
+
+        <button class="new-chat-btn">
+            <div class="new-chat-icon"></div>
+            New chat
+        </button>
+
+        <div class="search-box">
+            <div class="search-icon"></div>
+            <span>Search</span>
+        </div>
+
+        <div class="nav-item">
+            <div class="nav-icon"></div>
+            Library
+        </div>
+
+        <div class="nav-item">
+            <div class="nav-icon"></div>
+            Create
+        </div>
+
+        <div class="section-title">Agents</div>
+
+        <div class="agent-item">
+            <div class="agent-icon researcher"></div>
+            Researcher
+        </div>
+
+        <div class="agent-item">
+            <div class="agent-icon analyst"></div>
+            Analyst
+        </div>
+
+        <div class="agent-item">
+            <div class="agent-icon chatgpt"></div>
+            ChatGPT vs MS Connectors
+        </div>
+
+        <div class="agent-item">
+            <div class="agent-icon spec"></div>
+            Functional Spec Reviewer
+        </div>
+
+        <div class="agent-item">
+            <div class="agent-icon new"></div>
+            New agent
+        </div>
+
+        <div class="agent-item">
+            <div class="agent-icon all"></div>
+            All agents
+        </div>
+
+        <div class="section-title">Notebooks</div>
+
+        <div class="notebook-item">
+            <div class="notebook-icon"></div>
+            Untitled Notebook
+        </div>
+
+        <div class="notebook-item">
+            <div class="notebook-icon"></div>
+            USERP Experiences Update
+        </div>
+
+        <div class="notebook-item">
+            <div class="notebook-icon"></div>
+            All notebooks
+        </div>
+
+        <div class="chats-section">
+            <div class="chats-header">
+                <div class="chats-title">Chats</div>
+                <div class="search-chats-icon"></div>
+            </div>
+
+            <div class="chat-item">Companies like OpenAI, Google, ...</div>
+            <div class="chat-item">From Connectors to Apps: Integr...</div>
+            <div class="chat-item">Dashboard Controls for App Sear...</div>
+        </div>
+
+        <div class="user-profile">
+            <div class="user-info">
+                <div class="user-avatar">AY</div>
+                <div class="user-name">Anirudh Yadav</div>
+            </div>
+            <div class="user-actions">
+                <div class="user-action-icon"></div>
+                <div class="user-action-icon"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Header -->
+        <div class="top-header">
+            <div class="mode-toggle">
+                <button class="mode-btn active">Work</button>
+                <button class="mode-btn">Web</button>
+            </div>
+            <div class="header-actions">
+                <div class="auto-dropdown">
+                    Auto
+                    <span>▼</span>
+                </div>
+                <div class="action-icon"></div>
+                <div class="action-icon primary"></div>
+                <div class="action-icon"></div>
+                <div class="action-icon"></div>
+                <div class="action-icon"></div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <h1 class="greeting">Hi, what can I help you with?</h1>
+
+            <div class="message-input-container">
+                <div class="message-input-wrapper">
+                    <input type="text" class="message-input" placeholder="Message Copilot">
+                    <div class="input-actions">
+                        <button class="add-btn">+</button>
+                        <button class="tools-btn">
+                            <div class="tools-icon"></div>
+                            Tools
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="suggestions">
+                <div class="suggestion-card">
+                    <div class="card-icon"></div>
+                    <div class="card-title">Recap Weekly GCOs Sync: VIP Connectors</div>
+                    <div class="card-subtitle">You might have missed</div>
+                </div>
+
+                <div class="suggestion-card">
+                    <div class="card-icon"></div>
+                    <div class="card-title">Help me prepare for USERP - Connector Scope and...</div>
+                    <div class="card-subtitle">Coming up</div>
+                </div>
+
+                <div class="suggestion-card">
+                    <div class="card-icon"></div>
+                    <div class="card-title">What should be on my radar from emails last week?</div>
+                    <div class="card-subtitle">Track your tasks</div>
+                </div>
+            </div>
+
+            <div class="show-more">
+                Show more ▼
+            </div>
+        </div>
+    </div>
+</body>
+</html>
