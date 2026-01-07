@@ -431,6 +431,11 @@
             gap: 6px;
             font-size: 13px;
             color: #333;
+            position: relative;
+        }
+
+        .tools-btn:hover {
+            background-color: #f5f5f5;
         }
 
         .tools-icon {
@@ -438,6 +443,109 @@
             height: 16px;
             background-color: #999;
             border-radius: 3px;
+        }
+
+        /* Tools Dropdown Menu */
+        .tools-dropdown {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            margin-bottom: 8px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 280px;
+            display: none;
+            z-index: 1000;
+            padding: 8px 0;
+        }
+
+        .tools-dropdown.active {
+            display: block;
+        }
+
+        .tools-menu-item {
+            padding: 12px 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .tools-menu-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .tools-menu-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #666;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .tools-menu-icon.researcher {
+            background-color: #0078D4;
+        }
+
+        .tools-menu-icon.analyst {
+            background-color: #8B5CF6;
+        }
+
+        .tools-menu-icon.designer {
+            background-color: #EC4899;
+        }
+
+        .tools-menu-icon.word {
+            background-color: #2B579A;
+        }
+
+        .tools-menu-icon.excel {
+            background-color: #217346;
+        }
+
+        .tools-menu-icon.powerpoint {
+            background-color: #D24726;
+        }
+
+        .tools-menu-icon.explore {
+            background-color: #6B7280;
+        }
+
+        .tools-menu-content {
+            flex: 1;
+        }
+
+        .tools-menu-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+
+        .tools-menu-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .tools-menu-item.explore-more {
+            border-top: 1px solid #e0e0e0;
+            margin-top: 4px;
+            padding-top: 12px;
+        }
+
+        .tools-menu-item.explore-more .tools-menu-title {
+            color: #0078D4;
+        }
+
+        .tools-menu-arrow {
+            color: #999;
+            font-size: 12px;
+            margin-left: auto;
         }
 
         /* Suggestion Cards */
@@ -648,9 +756,60 @@
                     <input type="text" class="message-input" placeholder="Message Copilot">
                     <div class="input-actions">
                         <button class="add-btn">+</button>
-                        <button class="tools-btn">
+                        <button class="tools-btn" id="toolsBtn">
                             <div class="tools-icon"></div>
                             Tools
+                            <div class="tools-dropdown" id="toolsDropdown">
+                                <div class="tools-menu-item">
+                                    <div class="tools-menu-icon researcher"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">Researcher</div>
+                                        <div class="tools-menu-description">Create reports using detailed analysis</div>
+                                    </div>
+                                </div>
+                                <div class="tools-menu-item">
+                                    <div class="tools-menu-icon analyst"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">Analyst</div>
+                                        <div class="tools-menu-description">Get insights from your data</div>
+                                    </div>
+                                </div>
+                                <div class="tools-menu-item">
+                                    <div class="tools-menu-icon designer"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">Designer</div>
+                                        <div class="tools-menu-description">Create images from a description</div>
+                                    </div>
+                                </div>
+                                <div class="tools-menu-item">
+                                    <div class="tools-menu-icon word"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">Word (Frontier)</div>
+                                        <div class="tools-menu-description">Write documents from scratch</div>
+                                    </div>
+                                </div>
+                                <div class="tools-menu-item">
+                                    <div class="tools-menu-icon excel"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">Excel (Frontier)</div>
+                                        <div class="tools-menu-description">Create workbooks with your data</div>
+                                    </div>
+                                </div>
+                                <div class="tools-menu-item">
+                                    <div class="tools-menu-icon powerpoint"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">PowerPoint (Frontier)</div>
+                                        <div class="tools-menu-description">Design beautiful presentations</div>
+                                    </div>
+                                </div>
+                                <div class="tools-menu-item explore-more">
+                                    <div class="tools-menu-icon explore"></div>
+                                    <div class="tools-menu-content">
+                                        <div class="tools-menu-title">Explore more agents</div>
+                                    </div>
+                                    <div class="tools-menu-arrow">›</div>
+                                </div>
+                            </div>
                         </button>
                     </div>
                 </div>
@@ -681,5 +840,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Tools dropdown functionality
+        const toolsBtn = document.getElementById('toolsBtn');
+        const toolsDropdown = document.getElementById('toolsDropdown');
+
+        // Toggle dropdown when clicking the tools button
+        toolsBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toolsDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!toolsBtn.contains(e.target) && !toolsDropdown.contains(e.target)) {
+                toolsDropdown.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
