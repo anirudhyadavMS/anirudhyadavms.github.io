@@ -1402,7 +1402,7 @@
 
         // Handle "Connect more" click to open modal
         const connectMoreBtn = document.querySelector('.source-item.connect-more');
-        if (connectMoreBtn && connectModal) {
+        if (connectMoreBtn && connectModal && sourcesDropdown) {
             connectMoreBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 connectModal.classList.add('active');
