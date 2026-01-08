@@ -162,7 +162,7 @@
             background: linear-gradient(135deg, #8B5CF6, #A78BFA);
         }
 
-        .agent-icon.chatgpt {
+        .agent-icon.copilot {
             background: linear-gradient(135deg, #10B981, #34D399);
         }
 
@@ -849,7 +849,7 @@
             background-color: #333;
         }
 
-        .apps-grid {
+        .connectors-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
@@ -1295,7 +1295,7 @@
             align-items: center;
         }
 
-        .chatgpt-logo {
+        .copilot-logo {
             width: 64px;
             height: 64px;
             background: linear-gradient(135deg, #10a37f, #1a7f64);
@@ -1562,8 +1562,8 @@
         </div>
 
         <div class="agent-item">
-            <div class="agent-icon chatgpt"></div>
-            ChatGPT vs MS Connectors
+            <div class="agent-icon copilot"></div>
+            Copilot vs MS Connectors
         </div>
 
         <div class="agent-item">
@@ -1604,8 +1604,8 @@
                 <div class="search-chats-icon"></div>
             </div>
 
-            <div class="chat-item">Companies like OpenAI, Google, ...</div>
-            <div class="chat-item">From Connectors to Apps: Integr...</div>
+            <div class="chat-item">Companies like Microsoft, Google, ...</div>
+            <div class="chat-item">From Apps to Connectors: Integr...</div>
             <div class="chat-item">Dashboard Controls for App Sear...</div>
         </div>
 
@@ -1791,21 +1791,21 @@
         </div>
     </div>
 
-    <!-- Connect More Apps Modal -->
+    <!-- Connect More Connectors Modal -->
     <div class="modal-overlay" id="connectModal">
         <div class="connect-modal">
             <div class="modal-header">
                 <div class="modal-title-section">
-                    <div class="modal-title">Connect more apps</div>
-                    <div class="modal-subtitle">Get better answers by connecting more apps</div>
+                    <div class="modal-title">Connect more connectors</div>
+                    <div class="modal-subtitle">Get better answers by connecting more connectors</div>
                 </div>
                 <button class="modal-close" id="closeModal" type="button" aria-label="Close modal">✕</button>
             </div>
             <div class="modal-body">
                 <div class="continue-section">
-                    <button class="continue-btn" type="button">Continue with 5 apps</button>
+                    <button class="continue-btn" type="button">Continue with 5 connectors</button>
                 </div>
-                <div class="apps-grid">
+                <div class="connectors-grid">
                     <div class="app-card" data-app="gmail">
                         <div class="app-card-icon gmail">
                             <div class="app-check">✓</div>
@@ -1857,7 +1857,7 @@
                     </div>
                     <div class="app-card add-more">
                         <div class="app-card-icon add-more">+</div>
-                        <div class="app-card-name">More apps</div>
+                        <div class="app-card-name">More connectors</div>
                     </div>
                 </div>
             </div>
@@ -1873,23 +1873,23 @@
                     <div class="dropbox-modal-icon connector">📦</div>
                 </div>
                 <div class="dropbox-modal-title">Connect Dropbox</div>
-                <div class="dropbox-modal-subtitle">Developed by OpenAI</div>
+                <div class="dropbox-modal-subtitle">Developed by Microsoft</div>
             </div>
             <div class="dropbox-modal-body">
                 <div class="info-section">
                     <div class="info-section-title">Continuous sync</div>
                     <div class="info-section-content">
-                        Your Dropbox content is indexed, stored, and kept up to date in ChatGPT. <a href="#" class="info-section-link">Learn more</a>
+                        Your Dropbox content is indexed, stored, and kept up to date in Copilot. <a href="#" class="info-section-link">Learn more</a>
                     </div>
                 </div>
                 <div class="info-section">
                     <div class="info-section-title">Permissions always respected</div>
                     <div class="info-section-content">
-                        ChatGPT is strictly limited to permissions you've explicitly set. Disable access anytime to revoke permissions.
+                        Copilot is strictly limited to permissions you've explicitly set. Disable access anytime to revoke permissions.
                     </div>
                 </div>
                 <div class="info-section">
-                    <div class="info-section-title">How ChatGPT uses data</div>
+                    <div class="info-section-title">How Copilot uses data</div>
                     <div class="info-section-content">
                         By default, we do not train on your data. Data from Dropbox may be used to provide you relevant and useful information. <a href="#" class="info-section-link">Learn more</a>
                     </div>
@@ -1924,7 +1924,7 @@
                             <div class="connection-radio"></div>
                         </div>
                         <div class="connection-option-description">
-                            Automatically syncs, indexes, and stores content to ChatGPT for improved response speed and quality. <a href="#" class="connection-option-link">Learn more</a>
+                            Automatically syncs, indexes, and stores content to Copilot for improved response speed and quality. <a href="#" class="connection-option-link">Learn more</a>
                         </div>
                     </div>
                     <div class="connection-option" data-connection="ondemand">
@@ -1953,8 +1953,8 @@
                 <div class="dropbox-auth-title">Dropbox</div>
             </div>
             <div class="dropbox-auth-body">
-                <div class="chatgpt-logo">🔄</div>
-                <div class="auth-request-title">ChatGPT would like to:</div>
+                <div class="copilot-logo">🔄</div>
+                <div class="auth-request-title">Copilot would like to:</div>
                 <div class="auth-permissions">
                     <div class="permission-item">
                         <div class="permission-bullet"></div>
@@ -1970,10 +1970,10 @@
                     </div>
                 </div>
                 <div class="auth-privacy-note">
-                    You can review ChatGPT's Privacy Policy <a href="#" class="auth-privacy-link">here</a>.
+                    You can review Copilot's Privacy Policy <a href="#" class="auth-privacy-link">here</a>.
                 </div>
                 <div class="auth-disconnect-note">
-                    You can disconnect apps anytime in <a href="#" class="auth-disconnect-link">connected apps</a> within your account settings.
+                    You can disconnect connectors anytime in <a href="#" class="auth-disconnect-link">connected connectors</a> within your account settings.
                 </div>
                 <div class="auth-buttons">
                     <button class="auth-cancel-btn" id="authCancelBtn" type="button">Cancel</button>
@@ -2050,7 +2050,7 @@
             });
         }
 
-        // Handle Dropbox app card click in "Connect more apps" modal to open Dropbox modal
+        // Handle Dropbox app card click in "Connect more connectors" modal to open Dropbox modal
         const dropboxAppCard = document.querySelector('.app-card[data-app="dropbox"]');
         if (dropboxAppCard && dropboxModal && connectModal) {
             dropboxAppCard.addEventListener('click', function(e) {
@@ -2101,7 +2101,7 @@
                 e.stopPropagation();
                 // Close the OAuth modal
                 dropboxAuthModal.classList.remove('active');
-                // Close the connect more apps modal if it's open
+                // Close the connect more connectors modal if it's open
                 connectModal.classList.remove('active');
                 // Add Dropbox to the sources list
                 dropboxSourceItem.style.display = 'flex';
