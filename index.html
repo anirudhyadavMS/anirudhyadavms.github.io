@@ -1638,6 +1638,10 @@
             color: #666;
         }
 
+        .connector-store-info.hidden {
+            display: none;
+        }
+
         /* Suggestion Cards */
         .suggestions {
             width: 100%;
@@ -2230,11 +2234,11 @@
                     </div>
                 </div>
                 <div class="connector-store-info">
-                    <div class="connector-store-info-icon">ℹ️</div>
+                    <div class="connector-store-info-icon" role="img" aria-label="Information">ℹ️</div>
                     <div class="connector-store-info-content">
                         <div class="connector-store-info-title">Looking for Connectors?</div>
                         <div class="connector-store-info-text">
-                            Connectors are now called Apps. You can still manage enabled ones here. 
+                            Connectors are now called Apps. You can still manage enabled ones here.
                             <a href="#" class="connector-store-info-link">Explore all apps</a>
                         </div>
                     </div>
@@ -2469,7 +2473,7 @@
                 e.stopPropagation();
                 const infoBox = this.closest('.connector-store-info');
                 if (infoBox) {
-                    infoBox.style.display = 'none';
+                    infoBox.classList.add('hidden');
                 }
             });
         }
