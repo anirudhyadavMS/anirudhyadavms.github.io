@@ -1246,6 +1246,203 @@
             background-color: #333;
         }
 
+        /* Dropbox OAuth Authorization Screen */
+        .dropbox-auth-modal {
+            background-color: white;
+            border-radius: 0;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropbox-auth-header {
+            padding: 24px 28px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dropbox-auth-logo {
+            width: 32px;
+            height: 32px;
+            background-color: #0061FF;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .dropbox-auth-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .dropbox-auth-body {
+            padding: 40px 28px;
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chatgpt-logo {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #10a37f, #1a7f64);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .auth-request-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .auth-permissions {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 24px;
+        }
+
+        .permission-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .permission-bullet {
+            width: 6px;
+            height: 6px;
+            background-color: #1a1a1a;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        .permission-text {
+            font-size: 14px;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .permission-text strong {
+            font-weight: 600;
+        }
+
+        .auth-privacy-note {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 24px;
+            max-width: 400px;
+        }
+
+        .auth-privacy-link {
+            color: #0078D4;
+            text-decoration: none;
+        }
+
+        .auth-privacy-link:hover {
+            text-decoration: underline;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .auth-cancel-btn {
+            flex: 1;
+            background-color: white;
+            color: #1a1a1a;
+            border: 1px solid #d0d0d0;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .auth-cancel-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .auth-allow-btn {
+            flex: 1;
+            background-color: #0078D4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .auth-allow-btn:hover {
+            background-color: #005a9e;
+        }
+
+        .auth-footer-links {
+            padding: 20px 28px;
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .auth-footer-link {
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .auth-footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .auth-disconnect-note {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 16px;
+            max-width: 400px;
+        }
+
+        .auth-disconnect-link {
+            color: #0078D4;
+            text-decoration: none;
+        }
+
+        .auth-disconnect-link:hover {
+            text-decoration: underline;
+        }
+
         /* Suggestion Cards */
         .suggestions {
             width: 100%;
@@ -1483,6 +1680,11 @@
                                     <div class="source-item" data-source="drive">
                                         <div class="source-icon drive"></div>
                                         <div class="source-name">Google Drive</div>
+                                        <div class="toggle-switch"></div>
+                                    </div>
+                                    <div class="source-item" data-source="dropbox" id="dropboxSourceItem" style="display: none;">
+                                        <div class="source-icon dropbox"></div>
+                                        <div class="source-name">Dropbox</div>
                                         <div class="toggle-switch"></div>
                                     </div>
                                     <div class="source-item" data-source="box">
@@ -1743,6 +1945,50 @@
         </div>
     </div>
 
+    <!-- Dropbox OAuth Authorization Modal -->
+    <div class="modal-overlay" id="dropboxAuthModal">
+        <div class="dropbox-auth-modal">
+            <div class="dropbox-auth-header">
+                <div class="dropbox-auth-logo">📦</div>
+                <div class="dropbox-auth-title">Dropbox</div>
+            </div>
+            <div class="dropbox-auth-body">
+                <div class="chatgpt-logo">🔄</div>
+                <div class="auth-request-title">ChatGPT would like to:</div>
+                <div class="auth-permissions">
+                    <div class="permission-item">
+                        <div class="permission-bullet"></div>
+                        <div class="permission-text"><strong>View</strong> content of your Dropbox files and folders</div>
+                    </div>
+                    <div class="permission-item">
+                        <div class="permission-bullet"></div>
+                        <div class="permission-text"><strong>View</strong> your Dropbox sharing settings and collaborators</div>
+                    </div>
+                    <div class="permission-item">
+                        <div class="permission-bullet"></div>
+                        <div class="permission-text"><strong>View</strong> basic information about your Dropbox account such as your username, email, and country</div>
+                    </div>
+                </div>
+                <div class="auth-privacy-note">
+                    You can review ChatGPT's Privacy Policy <a href="#" class="auth-privacy-link">here</a>.
+                </div>
+                <div class="auth-disconnect-note">
+                    You can disconnect apps anytime in <a href="#" class="auth-disconnect-link">connected apps</a> within your account settings.
+                </div>
+                <div class="auth-buttons">
+                    <button class="auth-cancel-btn" id="authCancelBtn" type="button">Cancel</button>
+                    <button class="auth-allow-btn" id="authAllowBtn" type="button">Allow</button>
+                </div>
+            </div>
+            <div class="auth-footer-links">
+                <a href="#" class="auth-footer-link">Privacy & terms</a>
+                <a href="#" class="auth-footer-link">Cookie policy</a>
+                <a href="#" class="auth-footer-link">Cookies & CCPA preferences</a>
+                <a href="#" class="auth-footer-link">AI Principles</a>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Tools dropdown functionality
         const toolsBtn = document.getElementById('toolsBtn');
@@ -1759,6 +2005,11 @@
         const closeAdvancedModal = document.getElementById('closeAdvancedModal');
         const cancelAdvancedBtn = document.getElementById('cancelAdvancedBtn');
         const saveChangesBtn = document.getElementById('saveChangesBtn');
+        const dropboxAuthModal = document.getElementById('dropboxAuthModal');
+        const continueDropboxBtn = document.querySelector('.continue-dropbox-btn');
+        const authAllowBtn = document.getElementById('authAllowBtn');
+        const authCancelBtn = document.getElementById('authCancelBtn');
+        const dropboxSourceItem = document.getElementById('dropboxSourceItem');
 
         // Toggle tools dropdown when clicking the tools button
         toolsBtn.addEventListener('click', function(e) {
@@ -1833,6 +2084,51 @@
             });
         }
 
+        // Handle "Continue to Dropbox" button click to show OAuth screen
+        if (continueDropboxBtn && dropboxAuthModal && dropboxModal) {
+            continueDropboxBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Close the Connect Dropbox modal
+                dropboxModal.classList.remove('active');
+                // Show the Dropbox OAuth authorization modal
+                dropboxAuthModal.classList.add('active');
+            });
+        }
+
+        // Handle "Allow" button click on OAuth screen
+        if (authAllowBtn && dropboxAuthModal && connectModal && dropboxSourceItem) {
+            authAllowBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Close the OAuth modal
+                dropboxAuthModal.classList.remove('active');
+                // Close the connect more apps modal if it's open
+                connectModal.classList.remove('active');
+                // Add Dropbox to the sources list
+                dropboxSourceItem.style.display = 'flex';
+                // The Dropbox toggle is already set to "on" by default in the HTML
+            });
+        }
+
+        // Handle "Cancel" button click on OAuth screen
+        if (authCancelBtn && dropboxAuthModal && dropboxModal) {
+            authCancelBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Close the OAuth modal
+                dropboxAuthModal.classList.remove('active');
+                // Go back to the Connect Dropbox modal
+                dropboxModal.classList.add('active');
+            });
+        }
+
+        // Close OAuth modal when clicking outside the modal content
+        if (dropboxAuthModal) {
+            dropboxAuthModal.addEventListener('click', function(e) {
+                if (e.target === dropboxAuthModal) {
+                    dropboxAuthModal.classList.remove('active');
+                }
+            });
+        }
+
         // Open Advanced Settings modal from Dropbox modal
         if (advancedSettingsLink && advancedModal && dropboxModal) {
             advancedSettingsLink.addEventListener('click', function(e) {
@@ -1885,7 +2181,7 @@
         });
 
         // Prevent default behavior for placeholder links
-        document.querySelectorAll('.info-section-link, .connection-option-link').forEach(link => {
+        document.querySelectorAll('.info-section-link, .connection-option-link, .auth-privacy-link, .auth-disconnect-link, .auth-footer-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
             });
