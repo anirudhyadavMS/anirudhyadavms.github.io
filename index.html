@@ -831,6 +831,10 @@
         .continue-section {
             text-align: center;
             margin-bottom: 28px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .continue-btn {
@@ -847,6 +851,23 @@
 
         .continue-btn:hover {
             background-color: #333;
+        }
+
+        .connector-store-btn {
+            background-color: white;
+            color: #1a1a1a;
+            border: 1px solid #d0d0d0;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .connector-store-btn:hover {
+            background-color: #f5f5f5;
+            border-color: #a0a0a0;
         }
 
         .connectors-grid {
@@ -1443,6 +1464,180 @@
             text-decoration: underline;
         }
 
+        /* Connector Store Modal */
+        .connector-store-modal {
+            background-color: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .connector-store-header {
+            padding: 24px 28px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .connector-store-title-section {
+            flex: 1;
+        }
+
+        .connector-store-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .connector-store-subtitle {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .connector-store-body {
+            padding: 0;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .connector-store-list {
+            padding: 8px 0;
+        }
+
+        .connector-store-item {
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .connector-store-item:hover {
+            background-color: #f8f8f8;
+        }
+
+        .connector-store-item:last-child {
+            border-bottom: none;
+        }
+
+        .connector-store-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .connector-store-icon.coursera {
+            background-color: #0056D2;
+        }
+
+        .connector-store-icon.dropbox {
+            background-color: #0061FF;
+        }
+
+        .connector-store-icon.github {
+            background-color: #181717;
+        }
+
+        .connector-store-icon.gmail {
+            background-color: #EA4335;
+        }
+
+        .connector-store-icon.calendar {
+            background-color: #4285F4;
+        }
+
+        .connector-store-icon.drive {
+            background-color: #34A853;
+        }
+
+        .connector-store-name {
+            flex: 1;
+            font-size: 15px;
+            color: #1a1a1a;
+            font-weight: 400;
+        }
+
+        .connector-store-status {
+            font-size: 13px;
+            color: #666;
+            margin-right: 8px;
+        }
+
+        .connector-store-arrow {
+            color: #999;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .connector-store-info {
+            margin: 16px 28px;
+            padding: 16px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .connector-store-info-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .connector-store-info-content {
+            flex: 1;
+        }
+
+        .connector-store-info-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .connector-store-info-text {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .connector-store-info-link {
+            color: #0078D4;
+            text-decoration: underline;
+        }
+
+        .connector-store-info-link:hover {
+            color: #005a9e;
+        }
+
+        .connector-store-info-close {
+            background: transparent;
+            border: none;
+            color: #999;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .connector-store-info-close:hover {
+            color: #666;
+        }
+
         /* Suggestion Cards */
         .suggestions {
             width: 100%;
@@ -1804,6 +1999,7 @@
             <div class="modal-body">
                 <div class="continue-section">
                     <button class="continue-btn" type="button">Continue with 5 connectors</button>
+                    <button class="connector-store-btn" id="connectorStoreBtn" type="button">Connector store</button>
                 </div>
                 <div class="connectors-grid">
                     <div class="app-card" data-app="gmail">
@@ -1989,6 +2185,65 @@
         </div>
     </div>
 
+    <!-- Connector Store Modal -->
+    <div class="modal-overlay" id="connectorStoreModal">
+        <div class="connector-store-modal">
+            <div class="connector-store-header">
+                <div class="connector-store-title-section">
+                    <div class="connector-store-title">Enabled apps</div>
+                    <div class="connector-store-subtitle">Manage enabled apps ChatGPT can use in your chats.</div>
+                </div>
+                <button class="modal-close" id="closeConnectorStoreModal" type="button" aria-label="Close modal">✕</button>
+            </div>
+            <div class="connector-store-body">
+                <div class="connector-store-list">
+                    <div class="connector-store-item">
+                        <div class="connector-store-icon coursera"></div>
+                        <div class="connector-store-name">Coursera</div>
+                        <div class="connector-store-arrow">›</div>
+                    </div>
+                    <div class="connector-store-item">
+                        <div class="connector-store-icon dropbox"></div>
+                        <div class="connector-store-name">Dropbox</div>
+                        <div class="connector-store-status">Syncing</div>
+                        <div class="connector-store-arrow">›</div>
+                    </div>
+                    <div class="connector-store-item">
+                        <div class="connector-store-icon github"></div>
+                        <div class="connector-store-name">GitHub</div>
+                        <div class="connector-store-arrow">›</div>
+                    </div>
+                    <div class="connector-store-item">
+                        <div class="connector-store-icon gmail"></div>
+                        <div class="connector-store-name">Gmail</div>
+                        <div class="connector-store-arrow">›</div>
+                    </div>
+                    <div class="connector-store-item">
+                        <div class="connector-store-icon calendar"></div>
+                        <div class="connector-store-name">Google Calendar</div>
+                        <div class="connector-store-arrow">›</div>
+                    </div>
+                    <div class="connector-store-item">
+                        <div class="connector-store-icon drive"></div>
+                        <div class="connector-store-name">Google Drive</div>
+                        <div class="connector-store-arrow">›</div>
+                    </div>
+                </div>
+                <div class="connector-store-info">
+                    <div class="connector-store-info-icon">ℹ️</div>
+                    <div class="connector-store-info-content">
+                        <div class="connector-store-info-title">Looking for Connectors?</div>
+                        <div class="connector-store-info-text">
+                            Connectors are now called Apps. You can still manage enabled ones here. 
+                            <a href="#" class="connector-store-info-link">Explore all apps</a>
+                        </div>
+                    </div>
+                    <button class="connector-store-info-close" type="button" aria-label="Close info">✕</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Tools dropdown functionality
         const toolsBtn = document.getElementById('toolsBtn');
@@ -2010,6 +2265,9 @@
         const authAllowBtn = document.getElementById('authAllowBtn');
         const authCancelBtn = document.getElementById('authCancelBtn');
         const dropboxSourceItem = document.getElementById('dropboxSourceItem');
+        const connectorStoreModal = document.getElementById('connectorStoreModal');
+        const connectorStoreBtn = document.getElementById('connectorStoreBtn');
+        const closeConnectorStoreModal = document.getElementById('closeConnectorStoreModal');
 
         // Toggle tools dropdown when clicking the tools button
         toolsBtn.addEventListener('click', function(e) {
@@ -2180,8 +2438,44 @@
             });
         });
 
+        // Handle "Connector store" button click to open Connector Store modal
+        if (connectorStoreBtn && connectorStoreModal) {
+            connectorStoreBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                connectorStoreModal.classList.add('active');
+            });
+        }
+
+        // Close Connector Store modal when clicking the close button
+        if (closeConnectorStoreModal && connectorStoreModal) {
+            closeConnectorStoreModal.addEventListener('click', function() {
+                connectorStoreModal.classList.remove('active');
+            });
+        }
+
+        // Close Connector Store modal when clicking outside the modal content
+        if (connectorStoreModal) {
+            connectorStoreModal.addEventListener('click', function(e) {
+                if (e.target === connectorStoreModal) {
+                    connectorStoreModal.classList.remove('active');
+                }
+            });
+        }
+
+        // Handle Connector Store info close button
+        const connectorStoreInfoClose = document.querySelector('.connector-store-info-close');
+        if (connectorStoreInfoClose) {
+            connectorStoreInfoClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const infoBox = this.closest('.connector-store-info');
+                if (infoBox) {
+                    infoBox.style.display = 'none';
+                }
+            });
+        }
+
         // Prevent default behavior for placeholder links
-        document.querySelectorAll('.info-section-link, .connection-option-link, .auth-privacy-link, .auth-disconnect-link, .auth-footer-link').forEach(link => {
+        document.querySelectorAll('.info-section-link, .connection-option-link, .auth-privacy-link, .auth-disconnect-link, .auth-footer-link, .connector-store-info-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
             });
