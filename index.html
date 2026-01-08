@@ -1642,6 +1642,265 @@
             display: none;
         }
 
+        /* Dropbox Details Modal */
+        .dropbox-details-modal {
+            background-color: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropbox-details-header {
+            padding: 24px 28px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-button {
+            background: transparent;
+            border: none;
+            color: #1a1a1a;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .dropbox-details-header-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dropbox-details-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #0061FF;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .dropbox-details-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .dropbox-details-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .disconnect-btn {
+            background-color: white;
+            color: #1a1a1a;
+            border: 1px solid #d0d0d0;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .disconnect-btn:hover {
+            background-color: #f5f5f5;
+        }
+
+        .three-dot-menu {
+            position: relative;
+        }
+
+        .three-dot-btn {
+            background: transparent;
+            border: none;
+            color: #666;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+            line-height: 1;
+        }
+
+        .three-dot-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .three-dot-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 4px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+            display: none;
+            z-index: 1000;
+            padding: 4px 0;
+        }
+
+        .three-dot-dropdown.active {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #1a1a1a;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f8f8;
+        }
+
+        .dropdown-item-icon {
+            font-size: 16px;
+        }
+
+        .dropbox-details-body {
+            padding: 28px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .details-section {
+            margin-bottom: 32px;
+        }
+
+        .details-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .details-info-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .details-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .details-info-row:last-child {
+            border-bottom: none;
+        }
+
+        .details-info-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .details-info-value {
+            font-size: 14px;
+            color: #1a1a1a;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .details-info-link {
+            color: #0078D4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .details-info-link:hover {
+            text-decoration: underline;
+        }
+
+        .details-divider {
+            height: 1px;
+            background-color: #e5e5e5;
+            margin: 24px 0;
+        }
+
+        .actions-section {
+            margin-top: 24px;
+        }
+
+        .action-item {
+            margin-bottom: 20px;
+        }
+
+        .action-item-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .action-item-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .metadata-section {
+            background-color: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .metadata-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .metadata-item {
+            margin-bottom: 8px;
+        }
+
+        .metadata-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .metadata-label {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .metadata-value {
+            font-size: 13px;
+            color: #1a1a1a;
+            font-family: 'Courier New', monospace;
+            background-color: #e8e9ea;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 8px;
+        }
+
         /* Suggestion Cards */
         .suggestions {
             width: 100%;
@@ -2189,13 +2448,88 @@
         </div>
     </div>
 
+    <!-- Dropbox Details Modal -->
+    <div class="modal-overlay" id="dropboxDetailsModal">
+        <div class="dropbox-details-modal">
+            <div class="dropbox-details-header">
+                <button class="back-button" id="backToConnectorStore" type="button" aria-label="Back">‹ Back</button>
+                <div class="dropbox-details-header-content">
+                    <div class="dropbox-details-icon"></div>
+                    <div class="dropbox-details-title">Dropbox</div>
+                </div>
+                <div class="dropbox-details-actions">
+                    <button class="disconnect-btn" type="button">Disconnect</button>
+                    <div class="three-dot-menu">
+                        <button class="three-dot-btn" id="threeDotBtn" type="button" aria-label="More options">⋯</button>
+                        <div class="three-dot-dropdown" id="threeDotDropdown">
+                            <div class="dropdown-item" id="disableSyncOption">
+                                <span class="dropdown-item-icon">⊗</span>
+                                <span>Disable sync</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropbox-details-body">
+                <div class="details-section">
+                    <div class="details-section-title">Information</div>
+                    <div class="details-info-grid">
+                        <div class="details-info-row">
+                            <div class="details-info-label">Connected on</div>
+                            <div class="details-info-value">7 Jan 2026</div>
+                        </div>
+                        <div class="details-info-row">
+                            <div class="details-info-label">Category</div>
+                            <div class="details-info-value">Productivity</div>
+                        </div>
+                        <div class="details-info-row">
+                            <div class="details-info-label">Developer</div>
+                            <div class="details-info-value">Microsoft</div>
+                        </div>
+                        <div class="details-info-row">
+                            <div class="details-info-label">Website</div>
+                            <div class="details-info-value">
+                                <a href="#" class="details-info-link">↗</a>
+                            </div>
+                        </div>
+                        <div class="details-info-row">
+                            <div class="details-info-label">Privacy Policy</div>
+                            <div class="details-info-value">
+                                <a href="#" class="details-info-link">↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-divider"></div>
+                <div class="details-section">
+                    <div class="details-section-title">Actions</div>
+                    <div class="actions-section">
+                        <div class="action-item">
+                            <div class="action-item-name">fetch</div>
+                            <div class="action-item-description">
+                                Fetches a file by path. If 'download_raw_file' is set to True, the file will be downloaded as a raw file. Otherwise, the file will be displayed as text.
+                            </div>
+                            <div class="metadata-section">
+                                <div class="metadata-title">Metadata</div>
+                                <div class="metadata-item">
+                                    <span class="metadata-label">Visibility</span>
+                                    <span class="metadata-value">public</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Connector Store Modal -->
     <div class="modal-overlay" id="connectorStoreModal">
         <div class="connector-store-modal">
             <div class="connector-store-header">
                 <div class="connector-store-title-section">
-                    <div class="connector-store-title">Enabled apps</div>
-                    <div class="connector-store-subtitle">Manage enabled apps ChatGPT can use in your chats.</div>
+                    <div class="connector-store-title">Enabled connectors</div>
+                    <div class="connector-store-subtitle">Manage enabled connectors Copilot can use in your chats.</div>
                 </div>
                 <button class="modal-close" id="closeConnectorStoreModal" type="button" aria-label="Close modal">✕</button>
             </div>
@@ -2206,7 +2540,7 @@
                         <div class="connector-store-name">Coursera</div>
                         <div class="connector-store-arrow">›</div>
                     </div>
-                    <div class="connector-store-item">
+                    <div class="connector-store-item" id="dropboxConnectorItem">
                         <div class="connector-store-icon dropbox"></div>
                         <div class="connector-store-name">Dropbox</div>
                         <div class="connector-store-status">Syncing</div>
@@ -2232,17 +2566,6 @@
                         <div class="connector-store-name">Google Drive</div>
                         <div class="connector-store-arrow">›</div>
                     </div>
-                </div>
-                <div class="connector-store-info">
-                    <div class="connector-store-info-icon" role="img" aria-label="Information">ℹ️</div>
-                    <div class="connector-store-info-content">
-                        <div class="connector-store-info-title">Looking for Connectors?</div>
-                        <div class="connector-store-info-text">
-                            Connectors are now called Apps. You can still manage enabled ones here.
-                            <a href="#" class="connector-store-info-link">Explore all apps</a>
-                        </div>
-                    </div>
-                    <button class="connector-store-info-close" type="button" aria-label="Close info">✕</button>
                 </div>
             </div>
         </div>
@@ -2272,6 +2595,12 @@
         const connectorStoreModal = document.getElementById('connectorStoreModal');
         const connectorStoreBtn = document.getElementById('connectorStoreBtn');
         const closeConnectorStoreModal = document.getElementById('closeConnectorStoreModal');
+        const dropboxDetailsModal = document.getElementById('dropboxDetailsModal');
+        const dropboxConnectorItem = document.getElementById('dropboxConnectorItem');
+        const backToConnectorStore = document.getElementById('backToConnectorStore');
+        const threeDotBtn = document.getElementById('threeDotBtn');
+        const threeDotDropdown = document.getElementById('threeDotDropdown');
+        const disableSyncOption = document.getElementById('disableSyncOption');
 
         // Toggle tools dropdown when clicking the tools button
         toolsBtn.addEventListener('click', function(e) {
@@ -2478,6 +2807,54 @@
             });
         }
 
+        // Handle Dropbox item click in Connector Store to open Dropbox Details modal
+        if (dropboxConnectorItem && dropboxDetailsModal && connectorStoreModal) {
+            dropboxConnectorItem.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Close connector store modal
+                connectorStoreModal.classList.remove('active');
+                // Open Dropbox details modal
+                dropboxDetailsModal.classList.add('active');
+            });
+        }
+
+        // Handle Back button in Dropbox Details modal
+        if (backToConnectorStore && dropboxDetailsModal && connectorStoreModal) {
+            backToConnectorStore.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Close Dropbox details modal
+                dropboxDetailsModal.classList.remove('active');
+                // Reopen connector store modal
+                connectorStoreModal.classList.add('active');
+            });
+        }
+
+        // Close Dropbox Details modal when clicking outside the modal content
+        if (dropboxDetailsModal) {
+            dropboxDetailsModal.addEventListener('click', function(e) {
+                if (e.target === dropboxDetailsModal) {
+                    dropboxDetailsModal.classList.remove('active');
+                }
+            });
+        }
+
+        // Handle three-dot menu button click
+        if (threeDotBtn && threeDotDropdown) {
+            threeDotBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                threeDotDropdown.classList.toggle('active');
+            });
+        }
+
+        // Handle Disable sync option click
+        if (disableSyncOption) {
+            disableSyncOption.addEventListener('click', function(e) {
+                e.stopPropagation();
+                alert('Sync disabled for Dropbox');
+                threeDotDropdown.classList.remove('active');
+            });
+        }
+
         // Prevent default behavior for placeholder links
         document.querySelectorAll('.info-section-link, .connection-option-link, .auth-privacy-link, .auth-disconnect-link, .auth-footer-link, .connector-store-info-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -2492,6 +2869,9 @@
             }
             if (!sourcesBtn.contains(e.target) && !sourcesDropdown.contains(e.target)) {
                 sourcesDropdown.classList.remove('active');
+            }
+            if (threeDotDropdown && !threeDotBtn?.contains(e.target) && !threeDotDropdown.contains(e.target)) {
+                threeDotDropdown.classList.remove('active');
             }
         });
     </script>
