@@ -141,6 +141,7 @@ main {
     margin-bottom: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
     transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .event-card:hover {
@@ -264,8 +265,4 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.event-card {
-    animation: fadeIn 0.5s ease-out;
 }
