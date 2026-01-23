@@ -645,6 +645,7 @@ function displayDisclaimer() {
         <p><strong>Note:</strong> The World Economic Forum Annual Meeting 2026 features over 200 sessions.
         This timetable includes major keynote addresses, special addresses, and publicly announced sessions.
         Many smaller sessions, private roundtables, and bilateral meetings are not included in public schedules.</p>
+        <p><strong>⏰ All times shown are in Swiss Time (CET - Central European Time, UTC+1)</strong></p>
     `;
     document.querySelector('.container').insertBefore(disclaimer, document.getElementById('timetable'));
 }
@@ -725,7 +726,7 @@ window.openModal = function(eventId) {
     // Populate modal content
     document.getElementById('modalTitle').textContent = event.title;
     document.getElementById('modalSpeaker').textContent = event.speaker;
-    document.getElementById('modalTime').textContent = `${event.date} at ${event.time}`;
+    document.getElementById('modalTime').textContent = `${event.date} at ${event.time} CET`;
     document.getElementById('modalLocation').textContent = event.location;
 
     // Status badge
@@ -816,7 +817,7 @@ function renderTimetable(events) {
             const statusClass = event.status ? `status-${event.status}` : '';
             html += `
                 <div class="time-slot">
-                    <div class="time-label">${event.time}</div>
+                    <div class="time-label">${event.time}<br><span style="font-size: 0.75rem; opacity: 0.8;">CET</span></div>
                     <div class="event-card ${statusClass}" data-event-id="${event.id}" style="cursor: pointer;">
                         <h4 class="event-title">${event.title}</h4>
                         <div class="event-speaker">${event.speaker}</div>
