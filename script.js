@@ -18,7 +18,7 @@ const eventsData = [
       "Børge Brende's welcoming remarks emphasized 'A Spirit of Dialogue' theme",
       "Set inclusive tone for week of global conversations"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=5p2CTWLs0Nw"
   },
   {
     "id": 2,
@@ -54,7 +54,7 @@ const eventsData = [
       "Acknowledged increasing global fragmentation and need for multilateral cooperation",
       "Set the tone for addressing AI, climate change, and economic uncertainties"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.weforum.org/videos/klaus-schwab-2026/"
   },
   {
     "id": 2,
@@ -72,7 +72,7 @@ const eventsData = [
       "Discussed strategic partnerships and trade agreements with multiple regions",
       "Addressed climate commitments and green technology leadership"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=YWFz70Lwsog"
   },
   {
     "id": 3,
@@ -90,7 +90,7 @@ const eventsData = [
       "Emphasized importance of stable US-China relations for global economy",
       "Highlighted China's role in sustainable development"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=mCWBEKCKOdE"
   },
   {
     "id": 4,
@@ -108,7 +108,7 @@ const eventsData = [
       "Discussed France's vision for technological sovereignty",
       "Emphasized importance of dialogue with all global powers"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=YmyMfK7YS7E"
   },
   {
     "id": 5,
@@ -126,7 +126,7 @@ const eventsData = [
       "Discussed Canada's strategic minerals and clean energy initiatives",
       "Called for renewed North American economic cooperation"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=flsgJe8mN-A"
   },
   {
     "id": 30,
@@ -162,7 +162,7 @@ const eventsData = [
       "Addressed questions on US-China economic relations",
       "Provided insights on US economic growth projections"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=AY6BK-ZOQ6M"
   },
   {
     "id": 31,
@@ -198,7 +198,7 @@ const eventsData = [
       "Concerns about long-term industrial base degradation",
       "Assessment of Russian central bank's monetary policy effectiveness"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.weforum.org/meetings/world-economic-forum-annual-meeting-2026/sessions/can-russia-sustain-a-wartime-economy/"
   },
   {
     "id": 8,
@@ -216,7 +216,7 @@ const eventsData = [
       "Discussed Egypt's economic reform progress",
       "Emphasized Egypt-Africa cooperation initiatives"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=WQ3uABFKj3E"
   },
   {
     "id": 9,
@@ -234,7 +234,7 @@ const eventsData = [
       "Assessment of European military readiness",
       "Balance between NATO integration and strategic autonomy"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=jzbLH2GajL0"
   },
   {
     "id": 10,
@@ -252,7 +252,7 @@ const eventsData = [
       "Fink emphasized AI's potential to transform productivity and growth",
       "Conversation covered AI sovereignty and global competition"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=eqpkLUUDvNg"
   },
   {
     "id": 11,
@@ -271,7 +271,7 @@ const eventsData = [
       "Challenges include global trade tensions and infrastructure needs",
       "Discussion on 'Make in India' initiative progress"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.weforum.org/videos/india-economy-2028/"
   },
   {
     "id": 12,
@@ -307,7 +307,7 @@ const eventsData = [
       "Warned about geopolitical risks and trade fragmentation",
       "Addressed banking regulation and capital requirements"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=hnLTD4D4wxY"
   },
   {
     "id": 33,
@@ -325,7 +325,7 @@ const eventsData = [
       "Called for renewed international support for peace process",
       "Emphasized importance of economic stability for lasting peace"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=SLd2GrjbSeg"
   },
   {
     "id": 34,
@@ -344,7 +344,7 @@ const eventsData = [
       "Mentioned Greenland strategic importance controversially",
       "Highlighted housing affordability initiatives"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=r9YdMzYAN84"
   },
   {
     "id": 35,
@@ -362,7 +362,7 @@ const eventsData = [
       "Defended free-market reforms and deregulation agenda",
       "Addressed inflation reduction progress and challenges"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.youtube.com/watch?v=UaE65g1jOAs"
   },
   {
     "id": 36,
@@ -380,7 +380,7 @@ const eventsData = [
       "Discussion of massive capital expenditures by tech companies",
       "Questions about timeline for AI ROI and economic impact"
     ],
-    "recordingLink": "https://www.weforum.org/videos/forum-live/"
+    "recordingLink": "https://www.weforum.org/videos/ai-revenue-models/"
   },
   {
     "id": 37,
